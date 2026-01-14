@@ -633,7 +633,7 @@ export const cryptoCards: CryptoCard[] = [
     network: 'Visa',
     cashbackMax: 2,
     annualFee: 'Free',
-    fxFee: '1%-3%',
+    fxFee: '0%',
     perks: ['DeFi Integration', 'Yield', 'Premium Design', '1.5%–2% cashback on eligible purchases', 'Instant virtual & physical cards'],
     signupBonus: 'Waitlist',
     custody: 'Non-Custodial',
