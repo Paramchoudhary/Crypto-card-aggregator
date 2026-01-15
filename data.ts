@@ -24,7 +24,10 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None (Portfolio-based)',
     atmLimit: '€2,000/mo free (Platinum)',
     mobilePay: true,
-    supportedAssets: '60+ Assets'
+    supportedAssets: '60+ Assets',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'GBP', 'USD'],
+    // rank: 1 // Gold Recommendation
   },
   {
     id: 'coinbase-card',
@@ -47,7 +50,10 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'Spend limits apply',
     mobilePay: true,
-    supportedAssets: 'All Coinbase Assets'
+    supportedAssets: 'All Coinbase Assets',
+    kyc: 'Required',
+    supportedCurrencies: ['USD'],
+    // rank: 2 // Silver Recommendation
   },
   {
     id: 'binance-card',
@@ -62,7 +68,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['Earn up to 3% cashback on every purchase', 'Earn up to 250 BRL/month', 'Automatic cashback that deposits into your account every month', 'Increased Cashback for all spending in Dec 2025 - Feb 2026', 'Spend with Virtual Card Immediately After Applying', 'Pay anywhere, anytime with crypto'],
     signupBonus: '$100',
     custody: 'Custodial',
-    regions: 'Brazil',
+    regions: 'Brazil, LATAM',
     officialLink: 'https://www.binance.com/en/cards',
     cardGradient: 'from-[#F0B90B] to-[#F8D33A]',
     tierColor: 'text-black',
@@ -70,7 +76,10 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '3,000 BRL/day',
     mobilePay: true,
-    supportedAssets: 'USDT, USDC, FDUSD, BNB, BTC, ETH, SOL, ADA, LINK, XRP'
+    supportedAssets: 'USDT, USDC, FDUSD, BNB, BTC, ETH, SOL, ADA, LINK, XRP',
+    kyc: 'Required',
+    supportedCurrencies: ['BRL', 'ARS', 'COP'],
+    // rank: 3 // Bronze Recommendation
   },
   {
     id: 'cdc-visa',
@@ -85,7 +94,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['CRO Rewards on everyday spending (0% to 8% depending on tier)', 'CRO Rewards on travel spending (up to 1.5% to 15% depending on tier, coming soon)', 'Priority support (from Ruby Steel tier)', 'Voice & messaging support (from Jade Green / Royal Indigo tier)', 'Exclusive experiences: F1, UFC, UEFA & more (from Jade Green / Royal Indigo tier)', 'Private account manager (coming soon from Jade Green / Royal Indigo tier)', 'Subscription rebates: Spotify, Netflix, and Truth+ (3 months to permanent depending on tier)', 'Airport lounge access (from Jade Green / Royal Indigo tier, with variations by tier)'],
     signupBonus: '$25 CRO',
     custody: 'Custodial',
-    regions: 'Global',
+    regions: 'Global (US, EU, UK, CA, APAC)',
     officialLink: 'https://crypto.com/en/cards',
     cardGradient: 'from-slate-900 to-slate-950',
     tierColor: 'text-white',
@@ -93,7 +102,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes ($500-$1,000,000 CRO)',
     atmLimit: '$200-$1,000/mo free (tier-dependent)',
     mobilePay: true,
-    supportedAssets: 'Fiat/CRO'
+    supportedAssets: 'Fiat/CRO',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'EUR', 'GBP', 'CAD', 'SGD', 'AUD']
   },
   {
     id: 'bybit-card',
@@ -104,11 +115,11 @@ export const cryptoCards: CryptoCard[] = [
     network: 'Mastercard',
     cashbackMax: 10,
     annualFee: 'Free',
-    fxFee: 'Not specified',
+    fxFee: '0.5%',
     perks: ['10% cashback up to 150 USD for selected users', '100% rebates on selected partners', '2% to 10% cashback rewards on everyday spending', 'Compatible with Apple Pay, Google Pay, and Samsung Pay', 'Earn up to 8% APR on idle funds with Auto-Earn', 'Free worldwide delivery'],
     signupBonus: '20 USDT',
     custody: 'Custodial',
-    regions: 'Certain countries (not EEA)',
+    regions: 'EEA, LATAM',
     officialLink: 'https://www.bybit.com/en/cards',
     cardGradient: 'from-[#121214] to-[#1F1F1F]',
     tierColor: 'text-orange-400',
@@ -116,7 +127,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '100 USD/mo free',
     mobilePay: true,
-    supportedAssets: '8+ Cryptos'
+    supportedAssets: '8+ Cryptos',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'USD', 'GBP']
   },
   {
     id: 'kast-card',
@@ -131,7 +144,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['Rewards points', 'Instant access', 'Points boost', 'VIP Concierge'],
     signupBonus: 'NFT',
     custody: 'Non-Custodial',
-    regions: '160+ countries',
+    regions: 'Global (160+ countries)',
     officialLink: 'https://www.kast.xyz/',
     cardGradient: 'from-purple-600 to-indigo-700',
     tierColor: 'text-white',
@@ -139,7 +152,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes (earn points boost on staked SOL)',
     atmLimit: 'Varies by Region',
     mobilePay: true,
-    supportedAssets: 'USDC, SOL, ETH, BTC'
+    supportedAssets: 'USDC, SOL, ETH, BTC',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'EUR', 'Global']
   },
   {
     id: 'gemini-card',
@@ -156,13 +171,15 @@ export const cryptoCards: CryptoCard[] = [
     custody: 'Custodial',
     regions: 'US',
     officialLink: 'https://www.gemini.com/credit-card',
-    cardGradient: 'from-slate-100 to-white',
+    cardGradient: 'from-slate-100 to-black',
     tierColor: 'text-slate-800',
     metal: true,
     stakingRequired: 'None',
     atmLimit: 'Cash Advance Fees',
     mobilePay: true,
-    supportedAssets: 'Rewards in 60+'
+    supportedAssets: 'Rewards in 60+',
+    kyc: 'Required',
+    supportedCurrencies: ['USD']
   },
   {
     id: 'metamask-card',
@@ -177,7 +194,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['Self-Custody', 'Linea Network', 'Direct Spending', 'Earn 1 MetaMask Rewards point for every $1 USD you spend', 'crypto cashback', 'exclusive benefits from our global partner network'],
     signupBonus: 'None',
     custody: 'Self-Custody',
-    regions: 'EU, UK, US, Argentina, Brazil, Canada, Colombia, Mexico',
+    regions: 'EU, UK, US',
     officialLink: 'https://metamask.io/card',
     cardGradient: 'from-orange-400 to-orange-500',
     tierColor: 'text-white',
@@ -185,7 +202,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'No fee up to $1,200/mo, then 2%',
     mobilePay: true,
-    supportedAssets: 'USDC, USDT, ETH'
+    supportedAssets: 'USDC, USDT, ETH',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'EUR', 'GBP']
   },
   {
     id: 'etherfi-card',
@@ -197,7 +216,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 15,
     annualFee: 'Free',
     fxFee: '1%',
-    perks: ['DeFi Native', 'Yield Bearing', 'Borrow vs ETH', 'Cashback on every purchase', 'Free physical cards', 'Virtual cards', 'Contactless payment', 'Apple Pay & Google Pay', 'Non-custodial account', 'Use your crypto', 'Spend with value-accruing stables', 'Family Member Cards w/ controls (coming soon)', 'Referral rewards (1% Cashback on referral purchases + 10% points on their deposits)', 'Airport Companion lounge access', 'Concierge', 'Priority support (24/7 Live Chat and email)', 'Crypto conference lounge access', 'Exclusive hotel discounts (Up to 65% off luxury hotels)', 'Event passes (crypto, sports and more) (crypto, crypto, sports and more) (coming soon)', 'Crypto concierge (coming soon)', 'Ether.fi Ventures Access (coming soon)', 'Price protection Up to $2K', 'Purchase protection Up to $10K', 'Extended warranty Up to $10K', 'Auto rental insurance', 'Baggage Delay Up to $500', 'Baggage Loss Up to $1K'],
+    perks: ['DeFi Native', 'Yield Bearing', 'Borrow vs ETH', 'Cashback on every purchase', 'Free physical cards', 'Virtual cards', 'Contactless payment', 'Apple Pay & Google Pay', 'Non-custodial account', 'Use your crypto', 'Spend with value-accruing stables', 'Family Member Cards w/ controls (coming soon)', 'Referral rewards (1% Cashback on referral purchases + 10% points on their deposits)', 'Airport Companion lounge access', 'Concierge', 'Priority support (24/7 Live Chat and email)', 'Crypto concierge (coming soon)', 'Exclusive hotel discounts (Up to 65% off luxury hotels)', 'Price protection Up to $2K', 'Purchase protection Up to $10K', 'Extended warranty Up to $10K', 'Auto rental insurance'],
     signupBonus: 'Points',
     custody: 'Non-Custodial',
     regions: 'US',
@@ -208,7 +227,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '2% fee',
     mobilePay: true,
-    supportedAssets: 'USDC (Yielding)'
+    supportedAssets: 'USDC (Yielding)',
+    kyc: 'Required',
+    supportedCurrencies: ['USD']
   },
   {
     id: 'wirex-card',
@@ -223,7 +244,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['Earn up to 8% Cryptoback™ on every purchase', 'Fee-free ATM withdrawals worldwide'],
     signupBonus: '1000 WXT',
     custody: 'Custodial',
-    regions: '130+ countries',
+    regions: 'Global (130+ countries)',
     officialLink: 'https://www.wirexapp.com/',
     cardGradient: 'from-[#00A58B] to-[#008670]',
     tierColor: 'text-white',
@@ -231,7 +252,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes (WXT)',
     atmLimit: '$400/mo Free',
     mobilePay: true,
-    supportedAssets: '150+ Cryptos'
+    supportedAssets: '150+ Cryptos',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'EUR', 'GBP', 'SGD', 'AUD', 'HKD', 'INR']
   },
   {
     id: 'bitpay-card',
@@ -254,7 +277,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '$2,000/day',
     mobilePay: true,
-    supportedAssets: '15+ Top Caps'
+    supportedAssets: '15+ Top Caps',
+    kyc: 'Required',
+    supportedCurrencies: ['USD']
   },
   {
     id: 'bitget-card',
@@ -266,10 +291,10 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 1,
     annualFee: 'Free',
     fxFee: '1-2.2%',
-    perks: ['Zero hidden fees (no top-up fees, no annual fees, no rate markups)', 'Seamless payments with Apple Pay, Google Pay, WeChat Pay, Alipay, and more', 'Accepted at over 80 million merchants worldwide via Mastercard', 'Compatible with major platforms like Amazon, TikTok, ChatGPT, and Grab', 'Ability to suspend or cancel the card (cancellation is permanent)'],
+    perks: ['Zero hidden fees', 'Seamless payments with Apple Pay & Google Pay', 'Accepted at over 80 million merchants worldwide', 'Compatible with major platforms like Amazon, TikTok, ChatGPT', 'Ability to suspend or cancel the card'],
     signupBonus: 'None',
     custody: 'Custodial',
-    regions: 'Europe (EEA and UK), Latin America (Argentina, Brazil, Chile, Colombia, Ecuador, El Salvador, Guatemala, Mexico, Panama, Peru), APAC (Singapore, South Korea, Japan, Vietnam, Malaysia, Taiwan, Australia, Thailand, Philippines), China',
+    regions: 'Europe (EEA), UK, LATAM, APAC',
     officialLink: 'https://web3.bitget.com/en/card',
     cardGradient: 'from-cyan-500 to-blue-500',
     tierColor: 'text-white',
@@ -277,7 +302,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes (BGB)',
     atmLimit: 'Not specified',
     mobilePay: true,
-    supportedAssets: 'USDT, USDC'
+    supportedAssets: 'USDT, USDC',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'EUR', 'GBP', 'JPY']
   },
   {
     id: 'coca-card',
@@ -292,7 +319,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['MPC Wallet', 'Non-Custodial', 'Privacy Focus', 'Up to 8% Cashback', '6% APY on balances', '50% off subscriptions'],
     signupBonus: 'None',
     custody: 'Non-Custodial',
-    regions: 'EEA, UK, Switzerland, Monaco, Australia, Hong Kong, Singapore, Brazil, Mexico, Argentina',
+    regions: 'EEA, UK, Global',
     officialLink: 'https://www.coca.xyz/',
     cardGradient: 'from-pink-500 to-rose-600',
     tierColor: 'text-white',
@@ -300,7 +327,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes (for Tiers)',
     atmLimit: '$250/mo free',
     mobilePay: true,
-    supportedAssets: 'USDT, USDC, EURC, EURS (15+ chains)'
+    supportedAssets: 'USDT, USDC, EURC, EURS (15+ chains)',
+    kyc: 'Light',
+    supportedCurrencies: ['EUR', 'USD', 'GBP']
   },
   {
     id: 'brighty-card',
@@ -323,7 +352,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€200/mo Free',
     mobilePay: true,
-    supportedAssets: 'USDT, EURT, USDC'
+    supportedAssets: 'USDT, EURT, USDC',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'USDT']
   },
   {
     id: 'cypher-card',
@@ -331,11 +362,11 @@ export const cryptoCards: CryptoCard[] = [
     issuer: 'Cypher',
     logo: getTwitterLogo('Cypher_HQ_'),
     type: 'Prepaid',
-    network: 'Mastercard',
+    network: 'Visa',
     cashbackMax: 5,
     annualFee: '$199',
     fxFee: '0.75%-1.75%',
-    perks: ['Private Spending', 'Luxury', 'Concierge', 'Instant off ramp from crypto to fiat', 'Both physical and virtual card', 'Superior card controls', 'Load with any non-custodial wallet', 'Family spending with multiple cards connected to a single account', 'Fraud protection (Premium only: Up to $300)'],
+    perks: ['Private Spending', 'Luxury', 'Concierge', 'Instant off ramp from crypto to fiat', 'Both physical and virtual card', 'Superior card controls', 'Load with any non-custodial wallet', 'Family spending', 'Fraud protection'],
     signupBonus: 'Waitlist',
     custody: 'Non-Custodial',
     regions: 'Global',
@@ -346,7 +377,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '$2,000/day',
     mobilePay: true,
-    supportedAssets: '500+ tokens across 25+ blockchains'
+    supportedAssets: '500+ tokens across 25+ blockchains',
+    kyc: 'None',
+    supportedCurrencies: ['USD', 'Global']
   },
   {
     id: 'venmo-card',
@@ -369,7 +402,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '$400/day',
     mobilePay: true,
-    supportedAssets: 'BTC, ETH, LTC, BCH'
+    supportedAssets: 'BTC, ETH, LTC, BCH',
+    kyc: 'Required',
+    supportedCurrencies: ['USD']
   },
   {
     id: 'whitebit-card',
@@ -381,7 +416,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 10,
     annualFee: 'Free',
     fxFee: '0%',
-    perks: ['WBIT Holder Perks', 'Fast Verification', 'Secure', 'up to 10% cashback in BTC', 'zero fees for top-up, monthly payment, opening, cancellation, inactivity', 'contactless payments from phone', 'earn cashback in selected categories', 'referral program up to 50 USDC'],
+    perks: ['WBIT Holder Perks', 'Fast Verification', 'Secure', 'up to 10% cashback in BTC', 'zero fees for top-up', 'contactless payments', 'earn cashback in selected categories', 'referral program'],
     signupBonus: 'None',
     custody: 'Custodial',
     regions: 'EEA',
@@ -392,7 +427,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€2,500/mo',
     mobilePay: true,
-    supportedAssets: 'WBT, USDT, BTC, ETH, XRP, SOL, NEAR, ADA, AVAX, EUR, DOGE'
+    supportedAssets: 'WBT, USDT, BTC, ETH, XRP, SOL, NEAR, ADA, AVAX, EUR, DOGE',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'USD', 'UAH']
   },
   {
     id: 'wayex-card',
@@ -404,10 +441,10 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 1,
     annualFee: 'Free',
     fxFee: '0% on USD',
-    perks: ['Crypto to Fiat', 'Instant', 'User Friendly', 'Automatic yield (up to 5% everyday, up to 20% fixed-term, coming soon)', 'instant swaps (coming soon)', 'global USD/EUR accounts'],
+    perks: ['Crypto to Fiat', 'Instant', 'User Friendly', 'Automatic yield (up to 5% everyday, up to 20% fixed-term)', 'instant swaps', 'global USD/EUR accounts'],
     signupBonus: 'None',
     custody: 'Self-Custody',
-    regions: 'US, emerging markets',
+    regions: 'US, Global',
     officialLink: 'https://www.wayex.com/en-US',
     cardGradient: 'from-green-400 to-emerald-500',
     tierColor: 'text-white',
@@ -415,7 +452,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'Not specified',
     mobilePay: true,
-    supportedAssets: 'Stablecoins (USDC, USDT)'
+    supportedAssets: 'Stablecoins (USDC, USDT)',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'EUR']
   },
   {
     id: 'gnosis-card',
@@ -430,7 +469,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['On-chain', 'Self-Custody', 'Developer Friendly', 'Instant Deployment', 'Multi-Currency Native', 'Self-Custodial', 'Global Coverage'],
     signupBonus: 'None',
     custody: 'Self-Custody',
-    regions: 'UK, EEA, Brazil, Argentina, Mexico, Colombia, Philippines, Thailand, Japan, Singapore',
+    regions: 'UK, EEA',
     officialLink: 'https://gnosispay.com/',
     cardGradient: 'from-[#058c49] to-[#046c38]',
     tierColor: 'text-white',
@@ -438,7 +477,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€500/day',
     mobilePay: true,
-    supportedAssets: 'EURe, GNO, ETH, USDC, EURC'
+    supportedAssets: 'EURe, GNO, ETH, USDC, EURC',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'GBP']
   },
   {
     id: 'fold-card',
@@ -450,7 +491,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 15,
     annualFee: 'Free',
     fxFee: '0%',
-    perks: ['Bitcoin Rewards', 'Spin Wheel', 'Bill Pay', 'Buy and sell bitcoin with zero fees*', 'Up to 1.5% back with ACH bill pay rewards', 'Gift card rewards and up to 15% back on merchant boosts', '1.5% back on categories like dining and travel', '0.5% on all other eligible purchases'],
+    perks: ['Bitcoin Rewards', 'Spin Wheel', 'Bill Pay', 'Buy and sell bitcoin with zero fees', 'Up to 1.5% back with ACH bill pay rewards', 'Gift card rewards and up to 15% back on merchant boosts', '1.5% back on categories like dining and travel'],
     signupBonus: 'Free Sats',
     custody: 'Custodial',
     regions: 'US',
@@ -461,7 +502,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'No Fees (In-Network)',
     mobilePay: true,
-    supportedAssets: 'Bitcoin Only'
+    supportedAssets: 'Bitcoin Only',
+    kyc: 'Required',
+    supportedCurrencies: ['USD']
   },
   {
     id: 'bleap-card',
@@ -473,7 +516,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 2,
     annualFee: 'Free',
     fxFee: '0%',
-    perks: ['Account Abstraction', 'Gasless', 'Easy Setup', 'Instant crypto-to-fiat conversion', 'free ATM withdrawals up to $400', 'Apple Pay/Google Pay support for seamless global spending'],
+    perks: ['Account Abstraction', 'Gasless', 'Easy Setup', 'Instant crypto-to-fiat conversion', 'free ATM withdrawals up to $400', 'Apple Pay/Google Pay support'],
     signupBonus: 'None',
     custody: 'Non-Custodial',
     regions: 'EEA',
@@ -484,7 +527,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€400/mo free',
     mobilePay: true,
-    supportedAssets: 'USDC, ETH'
+    supportedAssets: 'USDC, ETH',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR']
   },
   {
     id: 'bitpanda-card',
@@ -496,7 +541,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 1,
     annualFee: 'Free',
     fxFee: '0%',
-    perks: ['Spend Assets', 'Metals', 'Stocks', 'Free card', 'No monthly costs', '0% FX fees for non-Euro transactions', 'In-app card management', 'Apple Pay support', 'Real-time spending tracking', 'Visa security & fraud prevention', 'Block/unblock card', 'Extra 3DS protection'],
+    perks: ['Spend Assets', 'Metals', 'Stocks', 'Free card', 'No monthly costs', '0% FX fees for non-Euro transactions', 'In-app card management', 'Apple Pay support', 'Real-time spending tracking', 'Visa security & fraud prevention'],
     signupBonus: 'None',
     custody: 'Custodial',
     regions: 'EEA',
@@ -507,7 +552,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes (BEST)',
     atmLimit: '€500/day',
     mobilePay: true,
-    supportedAssets: 'All Bitpanda Assets'
+    supportedAssets: 'All Bitpanda Assets',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR']
   },
   {
     id: 'zypto-card',
@@ -519,7 +566,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 0,
     annualFee: 'Free',
     fxFee: '2%',
-    perks: ['Virtual Cards', 'Gift Cards', 'Wide Crypto Support', 'Use anywhere Visa is accepted', 'Up to $1M in spending power, 175K per swipe', 'Fast KYC. Instant funding with 100+ cryptos', 'Premium VISA benefits as standard', 'Personal concierge', 'Purchase protection and coverage benefits', 'Travel health benefits', 'Travel and lifestyle benefits including upgrades, lounges'],
+    perks: ['Virtual Cards', 'Gift Cards', 'Wide Crypto Support', 'Use anywhere Visa is accepted', 'Up to $1M in spending power', 'Fast KYC', 'Instant funding', 'Premium VISA benefits', 'Personal concierge', 'Travel and lifestyle benefits'],
     signupBonus: 'None',
     custody: 'Non-Custodial',
     regions: 'Global',
@@ -530,7 +577,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'Varies',
     mobilePay: true,
-    supportedAssets: '100+ cryptocurrencies'
+    supportedAssets: '100+ cryptocurrencies',
+    kyc: 'Light',
+    supportedCurrencies: ['USD', 'EUR', 'Global']
   },
   {
     id: 'ledger-card',
@@ -545,7 +594,7 @@ export const cryptoCards: CryptoCard[] = [
     perks: ['Ledger Live', 'Secured by Ledger', 'Collateral', 'Earn 1% cashback crypto rewards', 'Securely top up your card with crypto', 'Withdraw cash at ATMs', 'Unlock liquidity while holding onto your assets'],
     signupBonus: 'None',
     custody: 'Self-Custody',
-    regions: 'UK, EEA, US',
+    regions: 'UK, EEA',
     officialLink: 'https://shop.ledger.com/pages/cl-card-crypto-card',
     cardGradient: 'from-[#000000] to-[#1a1a1a]',
     tierColor: 'text-[#bc5603]',
@@ -553,7 +602,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€600/mo',
     mobilePay: true,
-    supportedAssets: 'BTC, ETH, USDT'
+    supportedAssets: 'BTC, ETH, USDT',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'GBP', 'USD']
   },
   {
     id: 'tuyo-card',
@@ -565,10 +616,10 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 0,
     annualFee: 'Free',
     fxFee: 'up to 1% for non-USD',
-    perks: ['Latin America', 'Easy Onramp', 'Mobile First', 'Keeping custody (self-custodial)', 'Privacy of transaction details', 'Compatibility with USDC on Base (with free conversion)', 'Support for mobile wallets (Apple Pay and Google Pay)'],
+    perks: ['Latin America', 'Easy Onramp', 'Mobile First', 'Keeping custody (self-custodial)', 'Privacy of transaction details', 'Compatibility with USDC on Base', 'Support for mobile wallets (Apple Pay and Google Pay)'],
     signupBonus: 'None',
     custody: 'Self-Custody',
-    regions: 'US, EEA',
+    regions: 'US, EEA, LATAM',
     officialLink: 'https://tuyo.com/card',
     cardGradient: 'from-fuchsia-600 to-purple-600',
     tierColor: 'text-white',
@@ -576,7 +627,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'Not supported',
     mobilePay: true,
-    supportedAssets: 'USDC, USDT'
+    supportedAssets: 'USDC, USDT',
+    kyc: 'None',
+    supportedCurrencies: ['USD', 'EUR']
   },
   {
     id: 'redotpay-card',
@@ -588,10 +641,10 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 0,
     annualFee: 'Free',
     fxFee: '1.2%',
-    perks: ['Hong Kong', 'Virtual Card', 'Fast KYC', 'Shop, withdraw, and manage your funds globally with our stablecoin-based card', 'No Annual Fees', 'Simply tap or swipe to pay', 'Withdraw cash at ATMs globally'],
+    perks: ['Hong Kong', 'Virtual Card', 'Fast KYC', 'Shop, withdraw, and manage your funds globally', 'No Annual Fees', 'Simply tap or swipe to pay', 'Withdraw cash at ATMs globally'],
     signupBonus: '$5',
     custody: 'Custodial',
-    regions: 'Global',
+    regions: 'Global (excluding US/Sanctioned)',
     officialLink: 'https://www.redotpay.com/',
     cardGradient: 'from-red-600 to-red-700',
     tierColor: 'text-white',
@@ -599,7 +652,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '$500/day',
     mobilePay: true,
-    supportedAssets: 'USDT, USDC, BTC, ETH'
+    supportedAssets: 'USDT, USDC, BTC, ETH',
+    kyc: 'Light',
+    supportedCurrencies: ['USD', 'HKD', 'Global']
   },
   {
     id: 'tria-card',
@@ -622,7 +677,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: 'Standard',
     mobilePay: true,
-    supportedAssets: 'BTC, Sol, and other 1000+ coins'
+    supportedAssets: 'BTC, Sol, and other 1000+ coins',
+    kyc: 'Required',
+    supportedCurrencies: ['USD', 'Global']
   },
   {
     id: 'avici-card',
@@ -645,7 +702,9 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€1,000/day',
     mobilePay: true,
-    supportedAssets: 'ERC-20 Tokens'
+    supportedAssets: 'ERC-20 Tokens',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR']
   },
   {
     id: 'oobit-card',
@@ -657,7 +716,7 @@ export const cryptoCards: CryptoCard[] = [
     cashbackMax: 6,
     annualFee: 'Free',
     fxFee: '1%',
-    perks: ['Tap to Pay', 'Instant Convert', 'Rewards', 'A crypto card that lets you use USDT, Bitcoin, Ethereum, and other stablecoins as easily as cash', 'Spend USDT, Bitcoin, Ethereum, and other stablecoins instantly at millions of stores, online shops, and services'],
+    perks: ['Tap to Pay', 'Instant Convert', 'Rewards', 'A crypto card that lets you use USDT, Bitcoin, Ethereum as cash', 'Spend instantly at millions of stores'],
     signupBonus: '10 OBT',
     custody: 'Non-Custodial',
     regions: 'EEA, USA, South Africa, Brazil',
@@ -668,9 +727,12 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'None',
     atmLimit: '€500/day',
     mobilePay: true,
-    supportedAssets: 'BTC, ETH, OBT, USDT'
+    supportedAssets: 'BTC, ETH, OBT, USDT',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'USD', 'BRL']
   },
-  {
+
+   {
     id: 'plutus-card',
     name: 'Plutus Card',
     issuer: 'Plutus',
@@ -691,7 +753,33 @@ export const cryptoCards: CryptoCard[] = [
     stakingRequired: 'Yes (PLU)',
     atmLimit: '£500/day',
     mobilePay: true,
-    supportedAssets: 'PLU, ETH, BTC'
+    supportedAssets: 'PLU, ETH, BTC',
+    kyc: 'Required',
+    supportedCurrencies: ['EUR', 'GBP']
+  },
+  {
+    id: 'deblock-card',
+    name: 'Deblock Card',
+    issuer: 'Deblock',
+    logo: getTwitterLogo('deblockapp'),
+    type: 'Debit',
+    network: 'Visa',
+    cashbackMax: 1,
+    annualFee: 'Free standard plan',
+    fxFee: '0%',
+    perks: ['Europe', 'Virtual Card', 'Self Custodial', 'MiCA licensed', 'Fast KYC', 'Deblock is: IBAN, cards, instant bank transfers, currency and Crypto exchanges... For free and with no bank charges!', 'No Annual Fees', 'Custom NFT branded cards', 'Withdraw cash at ATMs globally'],
+    signupBonus: '3 months Premium Plan',
+    custody: 'Non-Custodial',
+    regions: 'EEA',
+    officialLink: 'https://deblock.com/f-cca',
+    cardGradient: 'from-red-600 to-red-700',
+    tierColor: 'text-white',
+    metal: false,
+    stakingRequired: 'None',
+    atmLimit: '€30,000/monthly',
+    mobilePay: true,
+    supportedAssets: 'BTC, ETH, USDT, USDC, SOL, BNB, PENGU, HYPE, TON, and hundreds more',
+    kyc: 'Light',
+    supportedCurrencies: ['EUR']
   }
 ];
-

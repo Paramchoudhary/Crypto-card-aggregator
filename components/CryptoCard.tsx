@@ -1,6 +1,6 @@
 import React, { useState, useRef, MouseEvent } from 'react';
 import { CryptoCard as CryptoCardType } from '../types';
-import { Wifi, Zap, Check, Plus } from 'lucide-react';
+import { Wifi, Zap, Check, Plus, ShieldAlert, ShieldCheck, Trophy, Medal } from 'lucide-react';
 
 interface Props {
   card: CryptoCardType;
@@ -47,6 +47,61 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
     onSelect(card.id);
   };
 
+  // Rank Badge Logic
+  const getRankBadge = () => {
+    if (!card.rank) return null;
+    
+    if (card.rank === 1) {
+      return (
+        <div className="absolute -top-3 -right-3 z-50 animate-bounce delay-100">
+           <div className="relative">
+              <div className="absolute inset-0 bg-yellow-400 blur-sm rounded-full opacity-50"></div>
+              <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 border-2 border-yellow-100 shadow-lg flex items-center justify-center">
+                 <Trophy className="w-5 h-5 text-yellow-900 fill-yellow-900" />
+              </div>
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-yellow-600 text-[8px] text-white font-bold px-1.5 py-0.5 rounded-full shadow-sm whitespace-nowrap border border-yellow-400">
+                 #1 CHOICE
+              </div>
+           </div>
+        </div>
+      );
+    }
+    
+    if (card.rank === 2) {
+       return (
+        <div className="absolute -top-3 -right-3 z-50">
+           <div className="relative">
+              <div className="absolute inset-0 bg-slate-300 blur-sm rounded-full opacity-50"></div>
+              <div className="relative w-9 h-9 rounded-full bg-gradient-to-br from-slate-200 to-slate-400 border-2 border-slate-100 shadow-lg flex items-center justify-center">
+                 <Medal className="w-5 h-5 text-slate-800" />
+              </div>
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-slate-600 text-[8px] text-white font-bold px-1.5 py-0.5 rounded-full shadow-sm whitespace-nowrap border border-slate-400">
+                 TOP TIER
+              </div>
+           </div>
+        </div>
+      );
+    }
+    
+    if (card.rank === 3) {
+       return (
+        <div className="absolute -top-3 -right-3 z-50">
+           <div className="relative">
+              <div className="absolute inset-0 bg-amber-600 blur-sm rounded-full opacity-50"></div>
+              <div className="relative w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 border-2 border-amber-300 shadow-lg flex items-center justify-center">
+                 <Medal className="w-4 h-4 text-white" />
+              </div>
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-amber-800 text-[8px] text-white font-bold px-1.5 py-0.5 rounded-full shadow-sm whitespace-nowrap border border-amber-500">
+                 POPULAR
+              </div>
+           </div>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <div 
       className="group relative h-[220px] w-full perspective-1000 cursor-pointer select-none"
@@ -54,6 +109,8 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
       onMouseLeave={handleMouseLeave}
       onClick={toggleFlip}
     >
+      {getRankBadge()}
+      
       <div 
         ref={cardRef}
         className={`relative w-full h-full duration-500 transform-style-3d transition-transform ease-out ${flipped ? 'rotate-y-180' : ''}`}
@@ -139,15 +196,20 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
                 
                 <div className="space-y-2 overflow-y-auto no-scrollbar pb-1">
                   <div className="flex justify-between text-xs">
-                    <span className="text-slate-500">Annual Fee</span>
-                    <span className="font-semibold text-slate-700 dark:text-slate-300">{card.annualFee}</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-slate-500">FX Fee</span>
-                    <span className="font-semibold text-slate-700 dark:text-slate-300">{card.fxFee}</span>
+                     <span className="text-slate-500">Annual Fee</span>
+                     <span className="font-semibold text-slate-700 dark:text-slate-300">{card.annualFee}</span>
                   </div>
                   
-                  <div className="pt-1">
+                  {/* KYC Badge */}
+                  <div className="flex justify-between items-center text-xs">
+                     <span className="text-slate-500">KYC Status</span>
+                     <div className={`flex items-center gap-1 px-1.5 py-0.5 rounded-md font-bold text-[10px] ${card.kyc === 'Required' ? 'bg-slate-100 dark:bg-slate-800 text-slate-500' : 'bg-lime-400/20 text-lime-700 dark:text-lime-400'}`}>
+                        {card.kyc === 'Required' ? <ShieldCheck className="w-3 h-3" /> : <ShieldAlert className="w-3 h-3" />}
+                        {card.kyc === 'Required' ? 'Required' : 'No/Light'}
+                     </div>
+                  </div>
+
+                  <div className="pt-2">
                     <div className="flex flex-wrap gap-1.5">
                       {card.perks.slice(0, 2).map((perk, i) => (
                         <span key={i} className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-2 py-1 rounded-full font-medium border border-slate-200 dark:border-slate-700/50 line-clamp-2 leading-tight text-left">

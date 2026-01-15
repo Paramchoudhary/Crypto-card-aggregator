@@ -22,9 +22,16 @@ export interface CryptoCard {
   atmLimit: string; // e.g. "$200/mo Free"
   mobilePay: boolean; // Google/Apple Pay
   supportedAssets: string; // e.g. "50+ Cryptos"
+
+  // User requested fields
+  kyc: "Required" | "Light" | "None";
+  supportedCurrencies: string[]; // e.g. ["USD", "EUR", "INR"]
+  
+  // Paid Listing Rank (1 = Gold, 2 = Silver, 3 = Bronze)
+  rank?: number;
 }
 
-export type SortOption = "cashbackHigh" | "nameAZ" | "newest";
+export type SortOption = "featured" | "cashbackHigh" | "nameAZ" | "newest";
 
 export interface FilterState {
   search: string;
@@ -34,4 +41,17 @@ export interface FilterState {
   minCashback: number;
   annualFee: "all" | "free" | "paid";
   fxFee: "all" | "zero";
+  
+  // New Filters
+  region: string;
+  kyc: string;
+  currency: string;
+}
+
+// Global definition for Google Analytics
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
 }
