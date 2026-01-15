@@ -331,7 +331,7 @@ export const cryptoCards: CryptoCard[] = [
     issuer: 'Cypher',
     logo: getTwitterLogo('Cypher_HQ_'),
     type: 'Prepaid',
-    network: 'Mastercard',
+    network: 'VISA',
     cashbackMax: 5,
     annualFee: '$199',
     fxFee: '0.75%-1.75%',
