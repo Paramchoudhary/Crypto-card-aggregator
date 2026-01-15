@@ -645,7 +645,7 @@ export const cryptoCards: CryptoCard[] = [
     signupBonus: '$5',
     custody: 'Custodial',
     regions: 'Global (excluding US/Sanctioned)',
-    officialLink: 'https://www.redotpay.com/',
+    officialLink: 'https://wap.redotpay.com/en/invite/?referralId=ei5j9',
     cardGradient: 'from-red-600 to-red-700',
     tierColor: 'text-white',
     metal: false,
