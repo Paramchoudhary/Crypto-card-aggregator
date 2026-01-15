@@ -238,13 +238,7 @@ const App: React.FC = () => {
             </button>
          </nav>
 
-         <div className="mt-auto p-5 bg-[#F8F9FB] dark:bg-[#0C0E12] rounded-3xl border border-slate-100 dark:border-slate-800">
-            <div className="w-10 h-10 rounded-full bg-lime-400 flex items-center justify-center mb-3">
-                <ArrowUpRight className="w-5 h-5 text-black" />
-            </div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-1">Pro Insights</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">Compare over 25+ features instantly.</p>
-         </div>
+        
       </aside>
 
       {/* Main Content Area */}
