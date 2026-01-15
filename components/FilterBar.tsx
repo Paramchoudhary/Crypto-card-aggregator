@@ -48,7 +48,7 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
                   onChange={(e) => onSortChange(e.target.value as SortOption)}
                   className="appearance-none bg-white dark:bg-[#151F2E] text-slate-700 dark:text-slate-200 py-3.5 pl-5 pr-10 rounded-2xl text-sm font-semibold focus:outline-none cursor-pointer shadow-sm min-w-[180px]"
                >
-                 <option value="featured">✨ Featured</option>
+                 <option value="featured">✨ All</option>
                  <option value="cashbackHigh">Highest Cashback</option>
                  <option value="nameAZ">Alphabetical</option>
                  <option value="newest">Newest Added</option>
