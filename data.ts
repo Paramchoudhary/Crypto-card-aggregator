@@ -156,7 +156,7 @@ export const cryptoCards: CryptoCard[] = [
     custody: 'Custodial',
     regions: 'US',
     officialLink: 'https://www.gemini.com/credit-card',
-    cardGradient: 'from-slate-100 to-white',
+    cardGradient: 'from-slate-100 to-purple',
     tierColor: 'text-slate-800',
     metal: true,
     stakingRequired: 'None',
