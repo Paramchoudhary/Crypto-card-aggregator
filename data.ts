@@ -786,7 +786,7 @@ export const cryptoCards: CryptoCard[] = [
   id: 'ready-lite',
   name: 'Ready Lite',
   issuer: 'Ready',
-  logo: getTwitterLogo('Ready'),
+  logo: getTwitterLogo('ready_co'),
   type: 'Debit',
   network: 'Mastercard',
   cashbackMax: 0.5,
