@@ -781,5 +781,36 @@ export const cryptoCards: CryptoCard[] = [
     supportedAssets: 'BTC, ETH, USDT, USDC, SOL, BNB, PENGU, HYPE, TON, and hundreds more',
     kyc: 'Light',
     supportedCurrencies: ['EUR']
-  }
+  },
+  {
+  id: 'ready-lite',
+  name: 'Ready Lite',
+  issuer: 'Ready',
+  logo: getTwitterLogo('Ready'),
+  type: 'Debit',
+  network: 'Mastercard',
+  cashbackMax: 0.5,
+  annualFee: 'Free',
+  fxFee: 'Zero FX fees',
+  perks: [
+    '0.5% Cashback',
+    '0% FX fees',
+    'Virtual card',
+    'Google Pay',
+    'Apple Pay coming soon'
+  ],
+  signupBonus: 'None',
+  custody: 'Self-Custody',
+  regions: 'Global',
+  officialLink: 'https://t.co/uXiZjnByAs',
+  cardGradient: 'from-orange-200 to-orange-400',
+  tierColor: 'text-black',
+  metal: false,
+  stakingRequired: 'No',
+  atmLimit: '$200/month free',
+  mobilePay: true,
+  supportedAssets: 'Bitcoin, ETH, USDC',
+  kyc: 'Required',
+  supportedCurrencies: ['USD']
+}
 ];
