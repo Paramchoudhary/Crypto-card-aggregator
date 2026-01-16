@@ -220,7 +220,7 @@ export const cryptoCards: CryptoCard[] = [
     signupBonus: 'Points',
     custody: 'Non-Custodial',
     regions: 'US',
-    officialLink: 'https://www.ether.fi/cash',
+    officialLink: 'https://www.ether.fi/refer/4b510e44',
     cardGradient: 'from-violet-900 to-purple-900',
     tierColor: 'text-violet-200',
     metal: false,
