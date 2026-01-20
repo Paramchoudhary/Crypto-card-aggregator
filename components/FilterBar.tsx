@@ -16,12 +16,18 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
     onFilterChange({ ...filters, search: e.target.value });
   };
 
-  const toggleFilter = (category: keyof FilterState, value: string) => {
-    const current = filters[category] as string[];
-    const updated = current.includes(value)
-      ? current.filter(item => item !== value)
-      : [...current, value];
-    onFilterChange({ ...filters, [category]: updated });
+  const custodyOptions = [
+    { label: 'Self-Custody (Non-Custodial)', values: ['Self-Custody', 'Non-Custodial'] }
+  ];
+
+  const isCustodyActive = (values: string[]) => values.some(value => filters.custody.includes(value));
+
+  const toggleCustodyGroup = (values: string[]) => {
+    const hasAny = isCustodyActive(values);
+    const updated = hasAny
+      ? filters.custody.filter(item => !values.includes(item))
+      : [...filters.custody, ...values.filter(value => !filters.custody.includes(value))];
+    onFilterChange({ ...filters, custody: updated });
   };
 
   return (
@@ -158,18 +164,18 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
         <div className="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
 
         {/* Quick Toggles */}
-        {['Non-Custodial', 'Self-Custody'].map(type => (
-            <button
-              key={type}
-              onClick={() => toggleFilter('custody', type)}
-              className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
-                filters.custody.includes(type)
-                  ? 'bg-lime-400 border-lime-400 text-black'
-                  : 'bg-white dark:bg-[#151F2E] border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
-              }`}
-            >
-              {type}
-            </button>
+        {custodyOptions.map(({ label, values }) => (
+          <button
+            key={label}
+            onClick={() => toggleCustodyGroup(values)}
+            className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
+              isCustodyActive(values)
+                ? 'bg-lime-400 border-lime-400 text-black'
+                : 'bg-white dark:bg-[#151F2E] border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+            }`}
+          >
+            {label}
+          </button>
         ))}
 
         {/* Clear All */}
@@ -193,6 +199,10 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
                 Clear
             </button>
         )}
+
+        <div className="basis-full text-[11px] text-slate-400">
+          Note: "Non-custodial" and "self-custody" are treated the same here - you control the private keys.
+        </div>
       </div>
     </div>
   );

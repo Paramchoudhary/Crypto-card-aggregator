@@ -9,6 +9,13 @@ interface Props {
 }
 
 const ComparisonModal: React.FC<Props> = ({ cards, onClose, onRemove }) => {
+  const formatCustodyLabel = (custody: string) => {
+    if (custody === 'Self-Custody' || custody === 'Non-Custodial') {
+      return 'Self-Custody (Non-Custodial)';
+    }
+    return custody;
+  };
+
   if (cards.length === 0) return null;
 
   return (
@@ -107,7 +114,7 @@ const ComparisonModal: React.FC<Props> = ({ cards, onClose, onRemove }) => {
                         <td key={card.id} className="p-6 border-b border-slate-50 dark:border-slate-800/50 text-slate-700 dark:text-slate-300">
                             <div className="flex items-center gap-2">
                                 <ShieldCheck className={`w-4 h-4 ${card.custody.includes('Non') || card.custody.includes('Self') ? 'text-lime-500' : 'text-orange-400'}`} />
-                                {card.custody}
+                                {formatCustodyLabel(card.custody)}
                             </div>
                         </td>
                     ))}

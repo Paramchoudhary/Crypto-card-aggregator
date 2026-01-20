@@ -9,11 +9,18 @@ interface Props {
 }
 
 const ComparisonView: React.FC<Props> = ({ cards, onRemove, onBack }) => {
+  const formatCustodyLabel = (custody: string) => {
+    if (custody === 'Self-Custody' || custody === 'Non-Custodial') {
+      return 'Self-Custody (Non-Custodial)';
+    }
+    return custody;
+  };
+
   // Define the rows for comparison
   const rows = [
     { label: 'Card Type', key: 'type', icon: CreditCard },
     { label: 'Network', key: 'network', icon: Globe },
-    { label: 'Custody', key: 'custody', icon: Shield },
+    { label: 'Custody', key: 'custody', icon: Shield, format: (val: any) => formatCustodyLabel(val) },
     { label: 'Max Cashback', key: 'cashbackMax', format: (val: any) => `${val}%` },
     { label: 'Annual Fee', key: 'annualFee' },
     { label: 'FX Fee', key: 'fxFee' },
