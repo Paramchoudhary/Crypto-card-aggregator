@@ -263,6 +263,7 @@ supportedCurrencies: ['USD', 'HKD']
     kyc: 'Required',
     supportedCurrencies: ['USD']
   },
+
   {
     id: 'wirex-card',
     name: 'Wirex Card',
@@ -314,31 +315,6 @@ supportedCurrencies: ['USD', 'HKD']
     supportedCurrencies: ['USD']
   },
   {
-    id: 'bitget-card',
-    name: 'Bitget Card',
-    issuer: 'Bitget',
-    logo: getTwitterLogo('BitgetWallet'),
-    type: 'Debit',
-    network: 'Mastercard',
-    cashbackMax: 1,
-    annualFee: 'Free',
-    fxFee: '1-2.2%',
-    perks: ['Zero hidden fees', 'Seamless payments with Apple Pay & Google Pay', 'Accepted at over 80 million merchants worldwide', 'Compatible with major platforms like Amazon, TikTok, ChatGPT', 'Ability to suspend or cancel the card'],
-    signupBonus: 'None',
-    custody: 'Custodial',
-    regions: 'Europe (EEA), UK, LATAM, APAC',
-    officialLink: 'https://web3.bitget.com/en/card',
-    cardGradient: 'from-cyan-500 to-blue-500',
-    tierColor: 'text-white',
-    metal: true,
-    stakingRequired: 'Yes (BGB)',
-    atmLimit: 'Not specified',
-    mobilePay: true,
-    supportedAssets: 'USDT, USDC',
-    kyc: 'Required',
-    supportedCurrencies: ['USD', 'EUR', 'GBP', 'JPY']
-  },
-  {
     id: 'coca-card',
     name: 'Coca Card',
     issuer: 'COCA',
@@ -388,7 +364,7 @@ supportedCurrencies: ['USD', 'HKD']
     kyc: 'Required',
     supportedCurrencies: ['EUR', 'USDT']
   },
-  {
+{
     id: 'cypher-card',
     name: 'Cypher Card',
     issuer: 'Cypher',
