@@ -21,7 +21,7 @@ const ComparisonView: React.FC<Props> = ({ cards, onRemove, onBack }) => {
     { label: 'Card Type', key: 'type', icon: CreditCard },
     { label: 'Network', key: 'network', icon: Globe },
     { label: 'Custody', key: 'custody', icon: Shield, format: (val: any) => formatCustodyLabel(val) },
-    { label: 'Max Cashback', key: 'cashbackMax', format: (val: any) => `${val}%` },
+    { label: 'Max Cashback', key: 'cashbackMax', format: (val: any) => typeof val === 'number' ? `${val}%` : (val || 'N/A') },
     { label: 'Annual Fee', key: 'annualFee' },
     { label: 'FX Fee', key: 'fxFee' },
     { label: 'Staking Req.', key: 'stakingRequired', icon: Landmark },

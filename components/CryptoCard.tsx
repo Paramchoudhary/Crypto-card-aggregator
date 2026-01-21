@@ -189,7 +189,9 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
                 <div className="flex justify-between items-center mb-2 pb-2 border-b border-slate-100 dark:border-slate-800/50 shrink-0">
                   <h3 className="font-bold text-slate-900 dark:text-white text-base truncate pr-2">{card.name}</h3>
                   <div className="flex items-center gap-1 shrink-0">
-                      <span className="text-xs font-bold text-slate-900 dark:text-white">{card.cashbackMax}%</span>
+                      <span className="text-xs font-bold text-slate-900 dark:text-white">
+                        {typeof card.cashbackMax === 'number' ? `${card.cashbackMax}%` : (card.cashbackMax || 'N/A')}
+                      </span>
                       <span className="text-[10px] text-slate-500 uppercase">CB</span>
                   </div>
                 </div>

@@ -5,7 +5,7 @@ export interface CryptoCard {
   logo: string; // URL to logo image
   type: "Debit" | "Prepaid" | "Credit" | "Secured Credit";
   network: "Visa" | "Mastercard" | "Visa/Mastercard";
-  cashbackMax: number;
+  cashbackMax: number | string | null;
   annualFee: string;
   fxFee: string;
   perks: string[];

@@ -65,7 +65,7 @@ const ComparisonModal: React.FC<Props> = ({ cards, onClose, onRemove }) => {
                     {cards.map(card => (
                         <td key={card.id} className="p-6 border-b border-slate-50 dark:border-slate-800/50">
                             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-lime-400/20 text-lime-700 dark:text-lime-300">
-                                Up to {card.cashbackMax}%
+                                {typeof card.cashbackMax === 'number' ? `Up to ${card.cashbackMax}%` : (card.cashbackMax || 'N/A')}
                             </span>
                         </td>
                     ))}

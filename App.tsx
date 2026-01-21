@@ -135,7 +135,9 @@ const App: React.FC = () => {
 
       const matchesNetwork = filters.network.length === 0 || filters.network.includes(card.network);
       const matchesCustody = filters.custody.length === 0 || filters.custody.includes(card.custody);
-      const matchesCashback = card.cashbackMax >= filters.minCashback;
+      const matchesCashback = typeof card.cashbackMax === 'number' 
+        ? card.cashbackMax >= filters.minCashback 
+        : filters.minCashback === 0; // Cards with variable/null cashback only show when minCashback filter is 0
 
       // New Smart Region Filter
       const matchesRegion = checkRegionMatch(card.regions, filters.region);
@@ -155,7 +157,11 @@ const App: React.FC = () => {
          const rankB = b.rank || 999;
          return rankA - rankB;
       }
-      if (sort === 'cashbackHigh') return b.cashbackMax - a.cashbackMax;
+      if (sort === 'cashbackHigh') {
+        const aMax = typeof a.cashbackMax === 'number' ? a.cashbackMax : 0;
+        const bMax = typeof b.cashbackMax === 'number' ? b.cashbackMax : 0;
+        return bMax - aMax;
+      }
       if (sort === 'nameAZ') return a.name.localeCompare(b.name);
       if (sort === 'newest') return 0;
       return 0;
