@@ -275,6 +275,7 @@ const App: React.FC = () => {
           <PrivacyPage 
             onBack={() => setActivePage('cards')} 
             darkMode={darkMode}
+            onToggleDarkMode={() => setDarkMode(!darkMode)}
           />
         ) : activeTab === 'discover' ? (
           <>
