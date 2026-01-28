@@ -417,7 +417,7 @@ supportedCurrencies: ['USD', 'HKD']
   {
     id: 'bitrefill-card',
     name: 'Bitrefill Card',
-    issuer: 'Striga',
+    issuer: 'Bitrefill',
     logo: getTwitterLogo('Bitrefill'),
     type: 'Prepaid',
     network: 'Visa',
