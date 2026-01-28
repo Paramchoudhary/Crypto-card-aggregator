@@ -812,7 +812,7 @@ supportedCurrencies: ['USD', 'HKD']
     atmLimit: '€30,000/monthly',
     mobilePay: true,
     supportedAssets: 'BTC, ETH, USDT, USDC, SOL, BNB, PENGU, HYPE, TON, and hundreds more',
-    kyc: 'Light',
+    kyc: 'Required',
     supportedCurrencies: ['EUR']
   },
   {
