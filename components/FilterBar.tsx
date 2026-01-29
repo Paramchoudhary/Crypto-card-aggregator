@@ -31,17 +31,17 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
   };
 
   return (
-    <div className="w-full mb-8">
-      {/* Search & Sort Row */}
+    <div className="w-full mb-8 py-6">
+      {/* Search & Sort Row - Brutalist */}
       <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-6">
           <div className="relative w-full md:w-[480px]">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-slate-400" />
+              <Search className="h-5 w-5 text-white/50" />
             </div>
             <input
               type="text"
-              placeholder="Search by issuer, perk, or network..."
-              className="block w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white dark:bg-[#151F2E] border-none text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-lime-400/50 text-sm font-medium shadow-sm transition-shadow"
+              placeholder="SEARCH BY ISSUER, PERK, OR NETWORK..."
+              className="block w-full pl-12 pr-4 py-4 bg-black border-4 border-white text-white placeholder-white/40 focus:outline-none focus:border-lime-400 text-sm font-mono uppercase tracking-wider transition-colors"
               value={filters.search}
               onChange={handleInputChange}
             />
@@ -52,86 +52,86 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
                <select 
                   value={sort}
                   onChange={(e) => onSortChange(e.target.value as SortOption)}
-                  className="appearance-none bg-white dark:bg-[#151F2E] text-slate-700 dark:text-slate-200 py-3.5 pl-5 pr-10 rounded-2xl text-sm font-semibold focus:outline-none cursor-pointer shadow-sm min-w-[180px]"
+                  className="appearance-none bg-black text-white py-4 pl-5 pr-12 border-4 border-white text-sm font-black uppercase tracking-wider focus:outline-none focus:border-lime-400 cursor-pointer min-w-[200px] transition-colors"
                >
-                 <option value="featured">✨ All</option>
-                 <option value="cashbackHigh">Highest Cashback</option>
-                 <option value="nameAZ">Alphabetical</option>
-                 <option value="newest">Newest Added</option>
+                 <option value="featured">★ ALL CARDS</option>
+                 <option value="cashbackHigh">HIGHEST CASHBACK</option>
+                 <option value="nameAZ">ALPHABETICAL</option>
+                 <option value="newest">NEWEST ADDED</option>
                </select>
-               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
-                 <ChevronDown className="h-4 w-4" />
+               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white">
+                 <ChevronDown className="h-5 w-5" />
                </div>
              </div>
           </div>
       </div>
 
-      {/* Primary Filters Row */}
+      {/* Primary Filters Row - Brutalist */}
       <div className="flex flex-wrap items-center gap-3 mb-4">
         
-        {/* Region Selector - Expanded with Top 20+ Countries & Flags */}
-        <div className="relative group">
-           <div className="flex items-center gap-2 bg-white dark:bg-[#151F2E] px-4 py-2.5 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors cursor-pointer shadow-sm">
-              <Globe className="w-4 h-4 text-slate-400" />
+        {/* Region Selector */}
+        <div className="relative">
+           <div className="flex items-center gap-2 bg-black px-4 py-3 border-4 border-white hover:border-lime-400 transition-colors cursor-pointer">
+              <Globe className="w-4 h-4 text-lime-400" />
               <select 
                 value={filters.region}
                 onChange={(e) => onFilterChange({...filters, region: e.target.value})}
-                className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer w-[130px]"
+                className="bg-transparent text-sm font-black text-white focus:outline-none cursor-pointer w-[140px] uppercase"
               >
-                <option value="">All Regions</option>
+                <option value="">ALL REGIONS</option>
                 <optgroup label="Americas">
-                    <option value="United States">🇺🇸 United States</option>
-                    <option value="Canada">🇨🇦 Canada</option>
-                    <option value="Brazil">🇧🇷 Brazil</option>
-                    <option value="Argentina">🇦🇷 Argentina</option>
-                    <option value="Mexico">🇲🇽 Mexico</option>
-                    <option value="LATAM">🌎 Latin America</option>
+                    <option value="United States">🇺🇸 USA</option>
+                    <option value="Canada">🇨🇦 CANADA</option>
+                    <option value="Brazil">🇧🇷 BRAZIL</option>
+                    <option value="Argentina">🇦🇷 ARGENTINA</option>
+                    <option value="Mexico">🇲🇽 MEXICO</option>
+                    <option value="LATAM">🌎 LATAM</option>
                 </optgroup>
                 <optgroup label="Europe">
-                    <option value="United Kingdom">🇬🇧 United Kingdom</option>
-                    <option value="Germany">🇩🇪 Germany</option>
-                    <option value="France">🇫🇷 France</option>
-                    <option value="Spain">🇪🇸 Spain</option>
-                    <option value="Italy">🇮🇹 Italy</option>
-                    <option value="Netherlands">🇳🇱 Netherlands</option>
-                    <option value="Switzerland">🇨🇭 Switzerland</option>
-                    <option value="EEA">🇪🇺 Europe (EEA)</option>
+                    <option value="United Kingdom">🇬🇧 UK</option>
+                    <option value="Germany">🇩🇪 GERMANY</option>
+                    <option value="France">🇫🇷 FRANCE</option>
+                    <option value="Spain">🇪🇸 SPAIN</option>
+                    <option value="Italy">🇮🇹 ITALY</option>
+                    <option value="Netherlands">🇳🇱 NETHERLANDS</option>
+                    <option value="Switzerland">🇨🇭 SWITZERLAND</option>
+                    <option value="EEA">🇪🇺 EUROPE (EEA)</option>
                 </optgroup>
                 <optgroup label="Asia Pacific">
-                    <option value="India">🇮🇳 India</option>
-                    <option value="Japan">🇯🇵 Japan</option>
-                    <option value="South Korea">🇰🇷 South Korea</option>
-                    <option value="Australia">🇦🇺 Australia</option>
-                    <option value="Singapore">🇸🇬 Singapore</option>
-                    <option value="Vietnam">🇻🇳 Vietnam</option>
-                    <option value="Indonesia">🇮🇩 Indonesia</option>
-                    <option value="Philippines">🇵🇭 Philippines</option>
-                    <option value="Thailand">🇹🇭 Thailand</option>
-                    <option value="China">🇨🇳 China</option>
-                    <option value="APAC">🌏 Asia Pacific</option>
+                    <option value="India">🇮🇳 INDIA</option>
+                    <option value="Japan">🇯🇵 JAPAN</option>
+                    <option value="South Korea">🇰🇷 S. KOREA</option>
+                    <option value="Australia">🇦🇺 AUSTRALIA</option>
+                    <option value="Singapore">🇸🇬 SINGAPORE</option>
+                    <option value="Vietnam">🇻🇳 VIETNAM</option>
+                    <option value="Indonesia">🇮🇩 INDONESIA</option>
+                    <option value="Philippines">🇵🇭 PHILIPPINES</option>
+                    <option value="Thailand">🇹🇭 THAILAND</option>
+                    <option value="China">🇨🇳 CHINA</option>
+                    <option value="APAC">🌏 ASIA PACIFIC</option>
                 </optgroup>
                 <optgroup label="Africa/ME">
-                    <option value="Nigeria">🇳🇬 Nigeria</option>
-                    <option value="South Africa">🇿🇦 South Africa</option>
+                    <option value="Nigeria">🇳🇬 NIGERIA</option>
+                    <option value="South Africa">🇿🇦 S. AFRICA</option>
                     <option value="UAE">🇦🇪 UAE</option>
-                    <option value="Saudi Arabia">🇸🇦 Saudi Arabia</option>
-                    <option value="Turkey">🇹🇷 Turkey</option>
+                    <option value="Saudi Arabia">🇸🇦 SAUDI ARABIA</option>
+                    <option value="Turkey">🇹🇷 TURKEY</option>
                 </optgroup>
-                <option value="Global">🌍 Global / Worldwide</option>
+                <option value="Global">🌍 GLOBAL</option>
               </select>
            </div>
         </div>
 
         {/* Currency Selector */}
-        <div className="relative group">
-           <div className="flex items-center gap-2 bg-white dark:bg-[#151F2E] px-4 py-2.5 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors cursor-pointer shadow-sm">
-              <Banknote className="w-4 h-4 text-slate-400" />
+        <div className="relative">
+           <div className="flex items-center gap-2 bg-black px-4 py-3 border-4 border-white hover:border-lime-400 transition-colors cursor-pointer">
+              <Banknote className="w-4 h-4 text-lime-400" />
               <select 
                 value={filters.currency}
                 onChange={(e) => onFilterChange({...filters, currency: e.target.value})}
-                className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer w-[110px]"
+                className="bg-transparent text-sm font-black text-white focus:outline-none cursor-pointer w-[120px] uppercase"
               >
-                <option value="">Any Currency</option>
+                <option value="">ANY CURRENCY</option>
                 <option value="USD">USD ($)</option>
                 <option value="EUR">EUR (€)</option>
                 <option value="GBP">GBP (£)</option>
@@ -145,40 +145,40 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
         </div>
 
         {/* KYC Selector */}
-        <div className="relative group">
-           <div className="flex items-center gap-2 bg-white dark:bg-[#151F2E] px-4 py-2.5 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors cursor-pointer shadow-sm">
-              <Lock className="w-4 h-4 text-slate-400" />
+        <div className="relative">
+           <div className="flex items-center gap-2 bg-black px-4 py-3 border-4 border-white hover:border-lime-400 transition-colors cursor-pointer">
+              <Lock className="w-4 h-4 text-lime-400" />
               <select 
                 value={filters.kyc}
                 onChange={(e) => onFilterChange({...filters, kyc: e.target.value})}
-                className="bg-transparent text-sm font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer w-[120px]"
+                className="bg-transparent text-sm font-black text-white focus:outline-none cursor-pointer w-[130px] uppercase"
               >
-                <option value="">Any Privacy</option>
-                <option value="Required">KYC Required</option>
-                <option value="Light">Light KYC</option>
-                <option value="None">No KYC</option>
+                <option value="">ANY PRIVACY</option>
+                <option value="Required">KYC REQUIRED</option>
+                <option value="Light">LIGHT KYC</option>
+                <option value="None">NO KYC</option>
               </select>
            </div>
         </div>
 
-        <div className="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
+        <div className="h-10 w-1 bg-white/30 mx-2"></div>
 
-        {/* Quick Toggles */}
+        {/* Quick Toggles - Brutalist */}
         {custodyOptions.map(({ label, values }) => (
           <button
             key={label}
             onClick={() => toggleCustodyGroup(values)}
-            className={`px-3 py-2 rounded-xl text-xs font-bold transition-all border ${
+            className={`px-4 py-3 text-xs font-black uppercase tracking-wider transition-all border-4 ${
               isCustodyActive(values)
                 ? 'bg-lime-400 border-lime-400 text-black'
-                : 'bg-white dark:bg-[#151F2E] border-transparent text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                : 'bg-black border-white text-white hover:bg-white hover:text-black'
             }`}
           >
             {label}
           </button>
         ))}
 
-        {/* Clear All */}
+        {/* Clear All - Brutalist */}
         {(filters.region || filters.kyc || filters.currency || filters.custody.length > 0 || filters.search) && (
             <button 
               onClick={() => onFilterChange({ 
@@ -193,16 +193,16 @@ const FilterBar: React.FC<Props> = ({ filters, sort, onFilterChange, onSortChang
                   kyc: '',
                   currency: ''
               })}
-              className="ml-auto flex items-center gap-1 text-sm text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 px-3 py-2"
+              className="ml-auto flex items-center gap-2 text-sm font-black text-white hover:text-lime-400 px-4 py-3 border-4 border-white/50 hover:border-lime-400 transition-all uppercase"
             >
                 <X className="w-4 h-4" />
                 Clear
             </button>
         )}
+      </div>
 
-        <div className="basis-full text-[11px] text-slate-400">
-          Note: "Non-custodial" and "self-custody" are treated the same here - you control the private keys.
-        </div>
+      <div className="text-[11px] text-white/40 font-mono uppercase border-t-2 border-white/20 pt-4 mt-4">
+        Note: "Non-custodial" and "self-custody" are treated the same here - you control the private keys.
       </div>
     </div>
   );

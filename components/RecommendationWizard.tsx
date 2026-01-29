@@ -138,30 +138,30 @@ const RecommendationWizard: React.FC<Props> = ({ isOpen, onClose, onSelectCard }
         ];
 
         return (
-          <div className="space-y-4 animate-in slide-in-from-right duration-300 flex flex-col h-full">
+          <div className="space-y-4 flex flex-col h-full">
             <div className="shrink-0">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Where do you live?</h3>
-                <p className="text-sm text-slate-500 mb-4">Select your country to find available cards.</p>
+                <h3 className="text-xl font-black text-white mb-2 uppercase">Where do you live?</h3>
+                <p className="text-sm text-white/50 mb-4 font-mono">Select your country to find available cards.</p>
             </div>
             
-            <div className="overflow-y-auto custom-scrollbar flex-1 pr-2">
+            <div className="overflow-y-auto flex-1 pr-2">
                 <div className="grid grid-cols-2 gap-3 pb-2">
                 {countries.map(c => (
                     <button
                     key={c.name}
                     onClick={() => handleNext('region', c.name)}
-                    className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-lime-400 hover:bg-lime-50 dark:hover:bg-lime-900/10 transition-all text-left group flex items-center gap-3"
+                    className="p-3 border-4 border-white hover:border-lime-400 hover:bg-lime-400 hover:text-black transition-all text-left group flex items-center gap-3"
                     >
                       <span className="text-2xl">{c.flag}</span>
-                      <span className="font-bold text-slate-900 dark:text-white text-sm group-hover:text-lime-600 dark:group-hover:text-lime-400">{c.name}</span>
+                      <span className="font-black text-white text-xs group-hover:text-black uppercase">{c.name}</span>
                     </button>
                 ))}
                     <button
                         onClick={() => handleNext('region', 'Global')}
-                        className="p-3 col-span-2 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600 hover:border-lime-400 hover:bg-lime-50 dark:hover:bg-lime-900/10 transition-all text-center group flex items-center justify-center gap-2"
+                        className="p-3 col-span-2 border-4 border-dashed border-white/50 hover:border-lime-400 hover:bg-lime-400 hover:text-black transition-all text-center group flex items-center justify-center gap-2"
                     >
                         <span className="text-xl">🌍</span>
-                        <span className="font-bold text-slate-500 dark:text-slate-400 group-hover:text-lime-600 dark:group-hover:text-lime-400">Other / Global</span>
+                        <span className="font-black text-white/70 group-hover:text-black uppercase">Other / Global</span>
                     </button>
                 </div>
             </div>
@@ -169,16 +169,16 @@ const RecommendationWizard: React.FC<Props> = ({ isOpen, onClose, onSelectCard }
         );
       case 'currency':
         return (
-          <div className="space-y-4 animate-in slide-in-from-right duration-300">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Primary Currency?</h3>
+          <div className="space-y-4">
+            <h3 className="text-xl font-black text-white mb-2 uppercase">Primary Currency?</h3>
             <div className="grid grid-cols-2 gap-3">
               {['USD', 'EUR', 'GBP', 'INR', 'BRL', 'NGN', 'JPY', 'KRW'].map(c => (
                 <button
                   key={c}
                   onClick={() => handleNext('currency', c)}
-                  className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-lime-400 hover:bg-lime-50 dark:hover:bg-lime-900/10 transition-all text-left group"
+                  className="p-4 border-4 border-white hover:border-lime-400 hover:bg-lime-400 transition-all text-left group"
                 >
-                   <span className="font-bold text-slate-900 dark:text-white group-hover:text-lime-600 dark:group-hover:text-lime-400">{c}</span>
+                   <span className="font-black text-white group-hover:text-black text-lg">{c}</span>
                 </button>
               ))}
             </div>
@@ -186,50 +186,50 @@ const RecommendationWizard: React.FC<Props> = ({ isOpen, onClose, onSelectCard }
         );
       case 'kyc':
         return (
-          <div className="space-y-4 animate-in slide-in-from-right duration-300">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Privacy Preference</h3>
+          <div className="space-y-4">
+            <h3 className="text-xl font-black text-white mb-2 uppercase">Privacy Preference</h3>
             <div className="space-y-3">
-               <button onClick={() => handleNext('kyc', 'Required')} className="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-lime-400 hover:bg-lime-50 dark:hover:bg-lime-900/10 text-left">
-                  <span className="font-bold block text-slate-900 dark:text-white">Standard (KYC Required)</span>
-                  <span className="text-xs text-slate-500">Best limits & perks. Identity verification required.</span>
+               <button onClick={() => handleNext('kyc', 'Required')} className="w-full p-4 border-4 border-white hover:border-lime-400 hover:bg-lime-400 text-left group transition-all">
+                  <span className="font-black block text-white group-hover:text-black uppercase">Standard (KYC Required)</span>
+                  <span className="text-xs text-white/50 group-hover:text-black/70 font-mono">Best limits & perks. Identity verification required.</span>
                </button>
-               <button onClick={() => handleNext('kyc', 'Light')} className="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-lime-400 hover:bg-lime-50 dark:hover:bg-lime-900/10 text-left">
-                  <span className="font-bold block text-slate-900 dark:text-white">Light / No KYC</span>
-                  <span className="text-xs text-slate-500">Lower limits, higher privacy. Often decentralized.</span>
+               <button onClick={() => handleNext('kyc', 'Light')} className="w-full p-4 border-4 border-white hover:border-lime-400 hover:bg-lime-400 text-left group transition-all">
+                  <span className="font-black block text-white group-hover:text-black uppercase">Light / No KYC</span>
+                  <span className="text-xs text-white/50 group-hover:text-black/70 font-mono">Lower limits, higher privacy. Often decentralized.</span>
                </button>
-               <button onClick={() => handleNext('kyc', 'Any')} className="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-lime-400 hover:bg-lime-50 dark:hover:bg-lime-900/10 text-left">
-                  <span className="font-bold block text-slate-900 dark:text-white">I don't care</span>
+               <button onClick={() => handleNext('kyc', 'Any')} className="w-full p-4 border-4 border-white hover:border-lime-400 hover:bg-lime-400 text-left group transition-all">
+                  <span className="font-black block text-white group-hover:text-black uppercase">I don't care</span>
                </button>
             </div>
           </div>
         );
       case 'result':
         return (
-           <div className="animate-in zoom-in duration-300 h-full flex flex-col">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                 <Sparkles className="w-5 h-5 text-lime-400 fill-lime-400" />
-                 We found {matches.length} matches
+           <div className="h-full flex flex-col">
+              <h3 className="text-xl font-black text-white mb-4 flex items-center gap-2 uppercase">
+                 <Sparkles className="w-5 h-5 text-lime-400" />
+                 {matches.length} matches found
               </h3>
               
-              <div className="flex-1 overflow-y-auto custom-scrollbar space-y-3 pr-2">
+              <div className="flex-1 overflow-y-auto space-y-3 pr-2">
                  {matches.length > 0 ? matches.map(card => (
-                    <div key={card.id} className="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl flex items-center gap-4 group cursor-pointer hover:ring-2 hover:ring-lime-400 transition-all" onClick={() => { onSelectCard(card.id); onClose(); }}>
-                       <img src={card.logo} className="w-10 h-10 rounded-full" />
+                    <div key={card.id} className="p-4 bg-white/5 border-4 border-white/30 hover:border-lime-400 flex items-center gap-4 group cursor-pointer transition-all" onClick={() => { onSelectCard(card.id); onClose(); }}>
+                       <img src={card.logo} className="w-10 h-10 border-2 border-white" />
                        <div className="flex-1">
-                          <h4 className="font-bold text-slate-900 dark:text-white">{card.name}</h4>
-                          <p className="text-xs text-slate-500">{card.issuer} • {card.kyc === 'Required' ? 'KYC' : 'No KYC'}</p>
+                          <h4 className="font-black text-white uppercase">{card.name}</h4>
+                          <p className="text-xs text-white/50 font-mono">{card.issuer} • {card.kyc === 'Required' ? 'KYC' : 'NO KYC'}</p>
                        </div>
-                       <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-lime-400" />
+                       <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-lime-400" />
                     </div>
                  )) : (
-                    <div className="text-center py-10">
-                       <p className="text-slate-500">No exact matches found for these strict criteria.</p>
-                       <button onClick={reset} className="mt-4 text-lime-600 font-bold hover:underline">Try Again</button>
+                    <div className="text-center py-10 border-4 border-white/20">
+                       <p className="text-white/50 font-mono">No exact matches found for these criteria.</p>
+                       <button onClick={reset} className="mt-4 text-lime-400 font-black hover:underline uppercase">Try Again</button>
                     </div>
                  )}
               </div>
               
-              <button onClick={reset} className="mt-4 w-full py-3 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600">Start Over</button>
+              <button onClick={reset} className="mt-4 w-full py-4 bg-white text-black border-4 border-white font-black uppercase hover:bg-lime-400 hover:border-lime-400 transition-all">Start Over</button>
            </div>
         )
     }
@@ -237,24 +237,29 @@ const RecommendationWizard: React.FC<Props> = ({ isOpen, onClose, onSelectCard }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-       <div className="relative w-full max-w-md bg-white dark:bg-[#151F2E] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] h-[600px] ring-1 ring-white/10">
-          <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-[#1A2332] shrink-0">
-             <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5 text-lime-500" />
-                <span className="font-bold text-slate-900 dark:text-white">Card Wizard</span>
+       <div className="absolute inset-0 bg-black/90" onClick={onClose} />
+       <div className="relative w-full max-w-md bg-black border-4 border-white overflow-hidden flex flex-col max-h-[85vh] h-[600px]">
+          <div className="p-6 border-b-4 border-white flex justify-between items-center bg-black shrink-0">
+             <div className="flex items-center gap-3">
+                <div className="w-10 h-10 border-4 border-lime-400 flex items-center justify-center">
+                  <Globe className="w-5 h-5 text-lime-400" />
+                </div>
+                <span className="font-black text-white uppercase">Card Wizard</span>
              </div>
-             <button onClick={onClose}><X className="w-5 h-5 text-slate-400" /></button>
+             <button onClick={onClose} className="w-10 h-10 border-4 border-white flex items-center justify-center hover:bg-white hover:text-black transition-all text-white">
+               <X className="w-5 h-5" />
+             </button>
           </div>
           
           <div className="flex-1 p-6 flex flex-col overflow-hidden">
              {renderStep()}
           </div>
           
-          <div className="p-4 bg-slate-50 dark:bg-[#1A2332] flex justify-center gap-1 shrink-0">
-             <div className={`h-1.5 w-1.5 rounded-full transition-colors ${step === 'region' ? 'bg-lime-400' : 'bg-slate-300 dark:bg-slate-700'}`} />
-             <div className={`h-1.5 w-1.5 rounded-full transition-colors ${step === 'currency' ? 'bg-lime-400' : 'bg-slate-300 dark:bg-slate-700'}`} />
-             <div className={`h-1.5 w-1.5 rounded-full transition-colors ${step === 'kyc' ? 'bg-lime-400' : 'bg-slate-300 dark:bg-slate-700'}`} />
+          <div className="p-4 bg-black border-t-4 border-white flex justify-center gap-2 shrink-0">
+             <div className={`h-2 w-8 transition-colors ${step === 'region' ? 'bg-lime-400' : 'bg-white/30'}`} />
+             <div className={`h-2 w-8 transition-colors ${step === 'currency' ? 'bg-lime-400' : 'bg-white/30'}`} />
+             <div className={`h-2 w-8 transition-colors ${step === 'kyc' ? 'bg-lime-400' : 'bg-white/30'}`} />
+             <div className={`h-2 w-8 transition-colors ${step === 'result' ? 'bg-lime-400' : 'bg-white/30'}`} />
           </div>
        </div>
     </div>
