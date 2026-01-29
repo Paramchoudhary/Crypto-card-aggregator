@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,11 +24,12 @@
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-              mono: ['Fira Code', 'monospace'],
+              sans: ['Space Mono', 'IBM Plex Mono', 'monospace'],
+              mono: ['Space Mono', 'IBM Plex Mono', 'monospace'],
             },
             colors: {
               lime: {
+                300: '#D9F99D',
                 400: '#D1F866',
                 500: '#B8E640',
               },
@@ -51,10 +52,14 @@
         },
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      * {
+        font-family: 'Space Mono', 'IBM Plex Mono', monospace;
+      }
       body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Space Mono', 'IBM Plex Mono', monospace;
+        background-color: #000;
       }
       .perspective-1000 {
         perspective: 1000px;
@@ -75,6 +80,27 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+      /* Brutalist scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+        border: 2px solid #fff;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D1F866;
+        border: 2px solid #000;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+      }
+      /* Selection style */
+      ::selection {
+        background: #D1F866;
+        color: #000;
+      }
     </style>
   <script type="importmap">
 {
@@ -89,7 +115,7 @@
 }
 </script>
 </head>
-  <body class="bg-[#F8F9FB] text-slate-900 dark:bg-[#0C0E12] dark:text-slate-50 transition-colors duration-300">
+  <body class="bg-black text-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
