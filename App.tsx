@@ -49,6 +49,10 @@ const App: React.FC = () => {
   }, [activeTab]);
 
   const handleTabChange = (tab: 'discover' | 'compare') => {
+    if (tab === 'compare' && selectedCards.length === 0) {
+      alert('Please select the cards first.');
+      return;
+    }
     setActiveTab(tab);
   };
 
