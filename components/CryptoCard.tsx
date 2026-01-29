@@ -13,6 +13,9 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
 
+  // Determine if this card needs dark text (for bright backgrounds)
+  const needsDarkText = card.tierColor === 'text-black';
+
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (flipped || !cardRef.current) return;
     
@@ -102,6 +105,15 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
     return null;
   };
 
+  // Dynamic text colors based on card background
+  const textPrimary = needsDarkText ? 'text-black' : 'text-white';
+  const textSecondary = needsDarkText ? 'text-black/70' : 'text-white/90';
+  const textMuted = needsDarkText ? 'text-black/50' : 'text-white/50';
+  const textCard = needsDarkText ? 'text-black/80' : 'text-white/80';
+  const borderColor = needsDarkText ? 'border-black/20' : 'border-white/20';
+  const bgButton = needsDarkText ? 'bg-black/10 hover:bg-black/20' : 'bg-white/20 hover:bg-white/30';
+  const chipGradient = needsDarkText ? 'from-amber-300 to-amber-500' : 'from-amber-200 to-amber-400';
+
   return (
     <div 
       className="group relative h-[220px] w-full perspective-1000 cursor-pointer select-none"
@@ -137,18 +149,18 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
               <div className="flex justify-between items-start">
                  {/* Issuer Logo & Name */}
                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm p-0.5 border border-white/20 overflow-hidden shadow-sm">
+                    <div className={`w-8 h-8 rounded-full ${needsDarkText ? 'bg-black/10' : 'bg-white/10'} backdrop-blur-sm p-0.5 border ${borderColor} overflow-hidden shadow-sm`}>
                         <img src={card.logo} alt={card.issuer} className="w-full h-full object-cover rounded-full" onError={(e) => {
                             (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${card.issuer}&background=random`
                         }}/>
                     </div>
-                    <span className="font-medium text-white/90 text-sm tracking-wide">{card.issuer}</span>
+                    <span className={`font-medium ${textSecondary} text-sm tracking-wide`}>{card.issuer}</span>
                  </div>
                  
-                 {/* Quick Select Button on Front - INCREASED HIT AREA AND Z-INDEX */}
+                 {/* Quick Select Button on Front */}
                  <button 
                    onClick={handleSelection}
-                   className={`relative z-50 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 ${selected ? 'bg-lime-400 text-black shadow-lg shadow-lime-400/50' : 'bg-white/20 text-white hover:bg-white/30 backdrop-blur-md'}`}
+                   className={`relative z-50 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 ${selected ? 'bg-lime-400 text-black shadow-lg shadow-lime-400/50' : `${bgButton} ${textPrimary} backdrop-blur-md`}`}
                    aria-label={selected ? "Unselect card" : "Select card to compare"}
                  >
                     {selected ? <Check className="w-4 h-4 stroke-[3]" /> : <Plus className="w-4 h-4 stroke-[3]" />}
@@ -157,7 +169,7 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
 
               {/* Middle (Chip) */}
               <div className="pl-1">
-                   <div className="w-10 h-7 bg-gradient-to-br from-amber-200 to-amber-400 rounded-md border border-amber-500/30 flex items-center justify-center opacity-90 shadow-sm">
+                   <div className={`w-10 h-7 bg-gradient-to-br ${chipGradient} rounded-md border border-amber-500/30 flex items-center justify-center opacity-90 shadow-sm`}>
                       <div className="w-5 h-3 border border-amber-600/40 rounded-sm"></div>
                    </div>
               </div>
@@ -165,13 +177,13 @@ const CryptoCard: React.FC<Props> = ({ card, selected, onSelect }) => {
               {/* Bottom Row */}
               <div className="flex justify-between items-end">
                 <div className="flex flex-col">
-                  <span className="font-mono text-white/80 text-sm tracking-wider mb-1 shadow-black/10 drop-shadow-sm">•••• 8842</span>
-                  <span className="text-[10px] text-white/50 font-semibold uppercase tracking-widest">Card Holder</span>
+                  <span className={`font-mono ${textCard} text-sm tracking-wider mb-1 drop-shadow-sm`}>•••• 8842</span>
+                  <span className={`text-[10px] ${textMuted} font-semibold uppercase tracking-widest`}>Card Holder</span>
                 </div>
                 
                 <div className="flex flex-col items-end">
-                   <Wifi className="text-white/30 w-4 h-4 rotate-90 mb-1" />
-                   <div className="text-white font-bold italic opacity-90 text-lg drop-shadow-md">
+                   <Wifi className={`${textMuted} w-4 h-4 rotate-90 mb-1`} />
+                   <div className={`${textPrimary} font-bold italic opacity-90 text-lg drop-shadow-md`}>
                        {card.network}
                    </div>
                 </div>

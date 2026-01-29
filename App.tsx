@@ -246,7 +246,7 @@ const App: React.FC = () => {
          {/* Brutalist footer */}
          <div className="border-t-4 border-white pt-6 mt-6">
            <p className="text-xs text-white/60 font-mono uppercase">Crypto Cards Aggregator</p>
-           <p className="text-xs text-white/40 font-mono mt-1">© 2024</p>
+           <p className="text-xs text-white/40 font-mono mt-1">© 2026</p>
          </div>
       </aside>
 
