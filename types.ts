@@ -48,6 +48,39 @@ export interface FilterState {
   currency: string;
 }
 
+// LLM Ecosystem Types
+export interface LLMModel {
+  id: string;
+  name: string;
+  tagline: string;
+  primaryStrength: string;
+  secondaryStrengths: string[];
+  pricingModel: 'Free' | 'Freemium' | 'Subscription' | 'API Only';
+  pricingDetails: string;
+  logoUrl: string;
+  provider: string;
+  contextWindow: string;
+  apiAvailable: boolean;
+  specialFeatures: string[];
+  bestFor: string[];
+  gradient: string; // Tailwind gradient classes
+  accentColor: string; // Tailwind text color
+  officialLink: string;
+}
+
+export interface LLMUserNeed {
+  id: string;
+  label: string;
+  icon: string;
+  matchStrengths: string[];
+  description: string;
+}
+
+export type LLMFilterState = {
+  selectedNeed: string | null;
+  searchQuery: string;
+};
+
 // Global definition for Google Analytics
 declare global {
   interface Window {
