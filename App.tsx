@@ -5,7 +5,8 @@ import CryptoCard from './components/CryptoCard';
 import FilterBar from './components/FilterBar';
 import ComparisonView from './components/ComparisonView';
 import RecommendationWizard from './components/RecommendationWizard';
-import { LayoutDashboard, ArrowRight, Sun, Moon, ArrowUpRight, Copy, Sparkles, Wallet, Layers, Coins } from 'lucide-react';
+import PrivacyPage from './components/PrivacyPage';
+import { LayoutDashboard, ArrowRight, Sun, Moon, ArrowUpRight, Copy, Sparkles, Wallet, Layers, Coins, Shield } from 'lucide-react';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   // Changed default sort to featured (serial wise)
   const [sort, setSort] = useState<SortOption>('featured');
   const [activeTab, setActiveTab] = useState<'discover' | 'compare'>('discover');
+  const [activePage, setActivePage] = useState<'cards' | 'privacy'>('cards');
   const [isWizardOpen, setIsWizardOpen] = useState(false);
   
   const [filters, setFilters] = useState<FilterState>({
@@ -40,13 +42,18 @@ const App: React.FC = () => {
   // Google Analytics Tracking
   useEffect(() => {
     if (typeof window.gtag === 'function') {
+       const pageTitle = activePage === 'privacy' 
+         ? 'Privacy Protocols' 
+         : activeTab === 'discover' ? 'Discover Cards' : 'Comparison View';
+       const pagePath = activePage === 'privacy' ? '/privacy' : `/${activeTab}`;
+       
        window.gtag('event', 'page_view', {
-          page_title: activeTab === 'discover' ? 'Discover Cards' : 'Comparison View',
-          page_path: `/${activeTab}`,
+          page_title: pageTitle,
+          page_path: pagePath,
           send_to: 'G-XXXXXXXXXX' // Optional: ensures it sends to your specific ID if multiple are present
        });
     }
-  }, [activeTab]);
+  }, [activeTab, activePage]);
 
   const handleTabChange = (tab: 'discover' | 'compare') => {
     setActiveTab(tab);
@@ -201,9 +208,9 @@ const App: React.FC = () => {
 
          <nav className="space-y-1 flex-1">
             <button 
-              onClick={() => handleTabChange('discover')}
+              onClick={() => { setActivePage('cards'); handleTabChange('discover'); }}
               className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
-                activeTab === 'discover'
+                activePage === 'cards' && activeTab === 'discover'
                   ? 'bg-slate-900 dark:bg-white text-white dark:text-black shadow-lg shadow-slate-900/10' 
                   : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
               }`}
@@ -213,9 +220,9 @@ const App: React.FC = () => {
             </button>
             
             <button 
-              onClick={() => handleTabChange('compare')}
+              onClick={() => { setActivePage('cards'); handleTabChange('compare'); }}
               className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all group ${
-                activeTab === 'compare'
+                activePage === 'cards' && activeTab === 'compare'
                   ? 'bg-slate-900 dark:bg-white text-white dark:text-black shadow-lg shadow-slate-900/10' 
                   : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
               }`}
@@ -223,11 +230,30 @@ const App: React.FC = () => {
               <Copy className="w-5 h-5" />
               Comparison
               {selectedCards.length > 0 && (
-                <span className={`ml-auto text-xs font-bold px-2 py-0.5 rounded-md ${activeTab === 'compare' ? 'bg-white/20 text-white dark:text-black' : 'bg-lime-400 text-black'}`}>
+                <span className={`ml-auto text-xs font-bold px-2 py-0.5 rounded-md ${activePage === 'cards' && activeTab === 'compare' ? 'bg-white/20 text-white dark:text-black' : 'bg-lime-400 text-black'}`}>
                   {selectedCards.length}
                 </span>
               )}
             </button>
+
+            {/* Privacy Protocols Section - Cyberpunk Style */}
+            <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+              <span className="px-4 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Privacy</span>
+              <button 
+                onClick={() => setActivePage('privacy')}
+                className={`w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all mt-2 ${
+                  activePage === 'privacy'
+                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 shadow-lg shadow-cyan-500/10 border border-cyan-500/30' 
+                    : 'text-slate-500 dark:text-slate-400 hover:bg-cyan-500/10 hover:text-cyan-400 dark:hover:text-cyan-400'
+                }`}
+              >
+                <Shield className="w-5 h-5" />
+                Privacy Protocols
+                <span className={`ml-auto text-[9px] font-bold px-1.5 py-0.5 rounded ${activePage === 'privacy' ? 'bg-cyan-400/20 text-cyan-400' : 'bg-cyan-500/10 text-cyan-500'}`}>
+                  NEW
+                </span>
+              </button>
+            </div>
 
             <button 
                onClick={() => setIsWizardOpen(true)}
@@ -244,8 +270,14 @@ const App: React.FC = () => {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col h-full overflow-hidden relative transition-all duration-300">
         
-        {/* Render Active View */}
-        {activeTab === 'discover' ? (
+        {/* Render Privacy Page or Cards View */}
+        {activePage === 'privacy' ? (
+          <PrivacyPage 
+            onBack={() => setActivePage('cards')} 
+            darkMode={darkMode}
+            onToggleDarkMode={() => setDarkMode(!darkMode)}
+          />
+        ) : activeTab === 'discover' ? (
           <>
             {/* Top Header */}
             <header className="h-20 shrink-0 flex items-center justify-between px-8 bg-[#F8F9FB] dark:bg-[#0C0E12] z-10">
